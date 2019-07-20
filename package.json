@@ -2,7 +2,7 @@
   "name": "client-feedback-mm",
   "version": "0.0.2",
   "description": "Сервис сбора обратной связи после работы сервисных инженеров компании Миранда-Медиа",
-  "main": "./serv/index.js",
+  "main": "./client/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

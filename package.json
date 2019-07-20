@@ -1,0 +1,30 @@
+{
+  "name": "client-feedback-mm",
+  "version": "0.0.2",
+  "description": "Сервис сбора обратной связи после работы сервисных инженеров компании Миранда-Медиа",
+  "main": "./serv/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gr0ks/client-feedback-mm.git"
+  },
+  "keywords": [
+    "Miranda-Media",
+    "feedback"
+  ],
+  "author": "Ipya Petrenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gr0ks/client-feedback-mm/issues"
+  },
+  "homepage": "https://github.com/Gr0ks/client-feedback-mm#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "redis": "^2.8.0",
+    "swig": "^1.4.2",
+    "http": "^0.0.0"
+  },
+  "devDependencies": {}
+}

@@ -10,7 +10,7 @@ client.on("error", function (err) {
     console.log("Error: " + err);
   });
 
-function redisWrite(client, strKey){   
+function sendMsg(client, strKey){   
     client.set(strKey.client.clientID, JSON.stringify(strKey), function (err, repl) {
         if (err) {
                console.log('Что то случилось при записи: ' + err);               
@@ -55,7 +55,7 @@ app.post('/', function(req,res){
                 "breakdown":req.body.breakdown,
                 "tiketToDo":req.body.whatToDo,
                 "engineer":req.body.engineer,
-                "testIP":req.ip,
+                "testIP":req.ip.substring(7),
                 "time":req.time,
                 },
             "clientWishes":{
@@ -64,7 +64,7 @@ app.post('/', function(req,res){
             },
         }
     console.log(a);
-    redisWrite(client, a);
+    sendMsg(client, a);
     generateForm(req,res,'./client/index.html', {'username': 'User',});
 });
 

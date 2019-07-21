@@ -30,7 +30,7 @@ function generateForm(req,res, formH, text){
 }; 
 
 app.get('/', function(req,res){
-    generateForm(req,res,'./client/index.html', {'username': 'User',})
+    generateForm(req,res,'./client/tamplates/index.html', {'username': 'User',})
 });
 
 app.get('/bd', function(req,res){
@@ -65,7 +65,7 @@ app.post('/', function(req,res){
         }
     console.log(a);
     sendMsg(client, a);
-    generateForm(req,res,'./client/index.html', {'username': 'User',});
+    generateForm(req,res,'./client/tamplates/index.html', {'username': 'User',});
 });
 
 app.listen(8081);

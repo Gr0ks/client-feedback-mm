@@ -37,7 +37,7 @@ app.get('/bd', function(req,res){
     generateForm(req,res,'./client/tamplates/bd.html', {'answer': 'User',})
 });
 
-app.use('/css', express.static('./client/'));
+app.use('/css', express.static('./client/tamplates/'));
 app.use(express.urlencoded());
 
 app.post('/', function(req,res){

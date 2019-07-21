@@ -11,7 +11,7 @@ client.on("error", function (err) {
   });
 
 function redisWrite(client, strKey){   
-    client.set(strKey.client.clientFIO, JSON.stringify(strKey), function (err, repl) {
+    client.set(strKey.client.clientID, JSON.stringify(strKey), function (err, repl) {
         if (err) {
                console.log('Что то случилось при записи: ' + err);               
         } else {console.log('Write OK');};
@@ -30,26 +30,33 @@ function generateForm(req,res, formH, text){
 }; 
 
 app.get('/', function(req,res){
-    generateForm(req,res,'./client/tamplates/feedback.html', {'username': 'User',})
+    generateForm(req,res,'./client/index.html', {'username': 'User',})
 });
 
 app.get('/bd', function(req,res){
     generateForm(req,res,'./client/tamplates/bd.html', {'answer': 'User',})
 });
 
+app.use('/css', express.static('./client/'));
 app.use(express.urlencoded());
 
 app.post('/', function(req,res){
+    
     var a = {
         "client":
         {   
+            "clientID":req.body.lsID,
             "clientFIO":req.body.fio,
             "clientAdr":req.body.adr,
             "clientMark":req.body.mark,
-            "tikets":{
-                "tiketID":req.body.tiket,
-                "tiketSrc":req.body.neispravnost,
-                "tiketToDo":req.body.toDo,
+            "clientPhone":req.body.phone,
+            "tiket":{
+                "tiketID":req.body.tiketID,
+                "breakdown":req.body.breakdown,
+                "tiketToDo":req.body.whatToDo,
+                "engineer":req.body.engineer,
+                "testIP":req.ip,
+                "time":req.time,
                 },
             "clientWishes":{
                 "wish":req.body.wish,
@@ -58,7 +65,7 @@ app.post('/', function(req,res){
         }
     console.log(a);
     redisWrite(client, a);
-    generateForm(req,res,'./client/tamplates/feedback.html', {'username': 'User',});
+    generateForm(req,res,'./client/index.html', {'username': 'User',});
 });
 
 app.listen(8081);

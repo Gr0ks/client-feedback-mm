@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+    
+    <style type="text/css">
+        body {
+            padding: 5px
+        }
+    </style>
+    
+</head>
+
+<body>
+        <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Форма для заполнения</li>
+                </ol>
+        </nav>
+    
+    <div>
+     
+        <form action="/" method="post">
+            <div class="form-group" style="padding:5%">
+                <div class="row">
+                    <div class="col">
+                        <label for="Input#">№ лицевого счета клиента</label>
+                        <input type="number" class="form-control" name="lsID" placeholder="00000000">
+                    </div>
+                    <div class="col">
+                        <label for="FormControlInput1">Введите ФИО клиента</label>
+                        <input type="text" class="form-control" name="fio" placeholder="Иванов Иван Иванович">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="FormControlInput1">Введите адрес клиента</label>
+                        <input type="text" class="form-control" name="adr" placeholder="г. Севастополь, ул Ленина, д 11, кв 5">
+                    </div>
+                    <div class="col">
+                        <label for="FormControlInput1">Введите контактный телефон клиента</label>
+                        <input type="number" class="form-control" name="phone" placeholder="89780000000">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="FormControlInput1">Введите ID тикета</label>
+                        <input type="number" class="form-control" name="tiketID" placeholder="000000">
+                    </div>
+                    <div class="col">
+                        <label for="FormControlInput1">Введите заявленную неисправность</label>
+                        <input type="text" class="form-control" name="breakdown" placeholder="Нет интернета">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="exampleFormControlSelect1">Исполнитель (инженер)</label>
+                        <select class="form-control" name="engineer">
+                            <option>-</option>
+                            <option>Зенин В.В.</option>
+                            <option>Иванов А.А.</option>
+                            <option>Маншин Д.С.</option>
+                            <option>Петренко И.С.</option>
+                            <option>Шишкин С.О.</option>                    
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="FormControlInput1">Введите проделанную работу</label>
+                        <input type="text" class="form-control" name="whatToDo" placeholder="Сделал скрутку на этаже">
+                    </div>
+                </div>
+                <div class="row">
+                    <label for="exampleFormControlSelect1">Оцените работу компании по 10-ти бальной шкале</label>
+                    <select class="form-control" name="mark">
+                        <option>10</option>
+                        <option>9</option>
+                        <option>8</option>
+                        <option>7</option>
+                        <option>6</option>
+                        <option>5</option>
+                        <option>4</option>
+                        <option>3</option>
+                        <option>2</option>
+                        <option>1</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label for="FormControlTextarea1">Отзыв или пожелание клиента</label>
+                    <textarea class="form-control" name="wish" rows="3"></textarea>  
+                </div>
+                <br/>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </div>
+           
+        </form>
+
+    </div>
+    
+   
+</body>
+
+</html>

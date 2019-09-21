@@ -22,9 +22,10 @@
   "homepage": "https://github.com/Gr0ks/client-feedback-mm#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "http": "^0.0.0",
+    "mysql2": "^1.7.0",
     "redis": "^2.8.0",
-    "swig": "^1.4.2",
-    "http": "^0.0.0"
+    "swig": "^1.4.2"
   },
   "devDependencies": {}
 }

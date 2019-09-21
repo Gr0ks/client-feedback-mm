@@ -1,0 +1,41 @@
+a = {
+        "client":
+        {   
+            "clientID":req.body.lsID,
+            "clientFIO":req.body.fio,
+            "clientAdr":req.body.adr,
+            "clientMark":req.body.mark,
+            "clientPhone":req.body.phone,
+            "tiket":{
+                "tiketID":req.body.tiketID,
+                "breakdown":req.body.breakdown,
+                "tiketToDo":req.body.whatToDo,
+                "engineer":req.body.engineer,
+                "testIP":req.ip.substring(7),
+                "time":req.time,
+                },
+            "clientWishes":{
+                "wish":req.body.wish,
+                },            
+            },
+        }
+
+clients
+id	name		surname	snd_name	address		mark		id_by_billing
+ai	clientFIO				        clientAdr	clientMark	clientID
+
+employee
+employee_id	name	surname	snd_name	role	password	login
+ai		
+
+phone
+phone_id	phone_number	user_id
+ai		    clientPhone	    link
+
+tikets
+tiket_id	tiket_id_by_billing	breakdown	tiket_to_do	test_ip	time	client_id	employee_id
+ai		    tiketID			    breakdown	tiketToDo	testIP		    link		link
+
+wishes
+wish_id	wish	user_id
+ai	    wish	link

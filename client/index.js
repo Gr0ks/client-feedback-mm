@@ -131,23 +131,45 @@ function sendMsg(connection, strKey){
     
 };
 
+function get_analitics(connection,req,res){
+    
+
+
+    //SELECT * FROM `tikets` ORDER BY `tikets`.`client_id`
+    connection.query("SELECT * FROM `tikets` INNER JOIN `clients` ON tikets.client_id = clients.id",                     
+                    function(err, results) {
+                        if(err){ 
+                            console.log(err);
+                        }else{
+                            let resu =[];               
+                            resu =JSON.stringify(results);
+                            let resul={"texts": JSON.parse(resu)};
+                            generateForm(req,res,'./client/tamplates/analitics.html',resul)
+                        };
+                    });
+    
+};
+
 
 
 function generateForm(req,res, formH, text){
     key=req.path;
     console.log(key);
-    var page=swig.compileFile(formH);
+    var page=swig.renderFile(formH,text);
     
-    res.send(page(text));
+    res.send(page);
 }; 
 
 app.get('/', function(req,res){
-    generateForm(req,res,'./client/tamplates/index.html', {'username': 'User',})
+    generateForm(req,res,'./client/tamplates/index.html', {'username': 'User', 'from': 'mm'})
 });
 
-app.get('/bd', function(req,res){
-    generateForm(req,res,'./client/tamplates/bd.html', {'answer': 'User',})
+app.get('/a', function(req,res){
+    get_analitics(connection,req,res)
+    
 });
+
+
 
 app.use('/css', express.static('./client/tamplates/'));
 app.use(express.urlencoded());

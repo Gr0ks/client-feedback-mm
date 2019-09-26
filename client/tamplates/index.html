@@ -18,14 +18,21 @@
 </head>
 
 <body>
-        <nav aria-label="breadcrumb">
+        <nav aria-label="breadcrumb"> 
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Форма для заполнения</li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="/">Form</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/a">Analitics</a>
+                    </li>
                 </ol>
         </nav>
+        
     
     <div>
-     
+            {{ username }} {{ from }} 
         <form action="/" method="post">
             <div class="form-group" style="padding:5%">
                 <div class="row">

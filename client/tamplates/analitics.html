@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+    
+    <style type="text/css">
+        body {
+            padding: 5px
+        }
+        .tabs { width: 100%; padding: 0px; margin: 0 auto; }
+        .tabs>input { display:none; }
+        .tabs>div {
+            display: none;
+            padding: 12px;
+            border: 1px solid #C0C0C0;
+            background: #FFFFFF;
+        }
+        .tabs>label {
+            display: inline-block;
+            padding: 7px;
+            margin: 0 -5px -1px 0;
+            text-align: center;
+            color: #666666;
+            border: 1px solid #C0C0C0;
+            background: #E0E0E0;
+            cursor: pointer;
+        }
+        .tabs>input:checked + label {
+            color: #000000;
+            border: 1px solid #C0C0C0;
+            border-bottom: 1px solid #FFFFFF;
+            background: #FFFFFF;
+        }
+        #tab_1:checked ~ #txt_1,
+        #tab_2:checked ~ #txt_2 { display: block; }
+    </style>
+    
+</head>
+
+<body>
+        <nav aria-label="breadcrumb"> 
+                <ol class="breadcrumb">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Form</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="/a">Analitics</a>
+                    </li>
+                </ol>
+        </nav>
+    
+
+        <div class="card">
+                <li class="breadcrumb-item active" aria-current="page">Анализ обращений</li>
+                <div class="tabs">
+                        <input class="btn btn-primary" type="radio" name="inset" value="" id="tab_1" checked>
+                        <label class="btn btn-primary" for="tab_1">Повторы</label>
+                    
+                        <input class="btn btn-primary" type="radio" name="inset" value="" id="tab_2">
+                        <label class="btn btn-primary" for="tab_2">Вкладка №2</label>
+                    
+                        
+                    
+                        <div class="card" id="txt_1">
+                                <h5 class="card-title">Повторы</h5>
+                                <table  border="1" bordercolor=0  > 
+                                        {% for text in texts %} 
+                                    <tr>
+                                        
+                                        <td>
+                                            {{ text.tiket_id }}
+                                          </td>
+                                          <td>
+                                                {{ text.tiket_id_by_billing }}
+                                              </td>
+                                              <td>
+                                                    {{ text.breakdown }}
+                                                  </td>
+                                                  <td>
+                                                        {{ text.tiket_to_do }}
+                                                      </td>
+                                                      <td>
+                                                            {{ text.test_ip }}
+                                                          </td>
+                                                          <td>
+                                                                {{ text.time }}
+                                                              </td>
+                                                              <td>
+                                                                    {{ text.client_id }}
+                                                                  </td>
+                                                                  <td>
+                                                                        {{ text.employee_id }}
+                                                                      </td>
+                                        
+                                       
+                                    </tr>
+                                    {% endfor %}
+                                </table> 
+                                <p class="card-text">{{ username }} {{ a.time }} <br> {{ b }} </p>
+                                   
+                                <p class="card-text">{{ username }} {{ a.time }} <br> {{ '0' }} </p>
+                        </div>
+                        <div class="card" id="txt_2">
+                                <h5 class="card-title">Вкладка №2</h5>
+                                <p class="card-text">{{ username }} {{ from }} With supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                       
+                </div>
+
+    </div>
+    
+   
+</body>
+
+</html>

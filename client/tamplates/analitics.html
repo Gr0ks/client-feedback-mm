@@ -61,55 +61,72 @@
                 <li class="breadcrumb-item active" aria-current="page">Анализ обращений</li>
                 <div class="tabs">
                         <input class="btn btn-primary" type="radio" name="inset" value="" id="tab_1" checked>
-                        <label class="btn btn-primary" for="tab_1">Повторы</label>
+                        <label class="btn btn-primary" for="tab_1">Анализ распределения обращений</label>
                     
                         <input class="btn btn-primary" type="radio" name="inset" value="" id="tab_2">
-                        <label class="btn btn-primary" for="tab_2">Вкладка №2</label>
+                        <label class="btn btn-primary" for="tab_2">Клиенты с повторными обращениями</label>
                     
                         
                     
                         <div class="card" id="txt_1">
-                                <h5 class="card-title">Повторы</h5>
-                                <table  border="1" bordercolor=0  > 
-                                        {% for text in texts %} 
-                                    <tr>
-                                        
-                                        <td>
-                                            {{ text.tiket_id }}
-                                          </td>
-                                          <td>
-                                                {{ text.tiket_id_by_billing }}
-                                              </td>
-                                              <td>
-                                                    {{ text.breakdown }}
-                                                  </td>
-                                                  <td>
-                                                        {{ text.tiket_to_do }}
-                                                      </td>
-                                                      <td>
-                                                            {{ text.test_ip }}
-                                                          </td>
-                                                          <td>
-                                                                {{ text.time }}
-                                                              </td>
-                                                              <td>
-                                                                    {{ text.client_id }}
-                                                                  </td>
-                                                                  <td>
-                                                                        {{ text.employee_id }}
-                                                                      </td>
-                                        
-                                       
-                                    </tr>
+                                <h5 class="card-title">Тикетов за месяц: {{ texts.tiketByMonth }}<br> Тикетов за неделю: {{ texts.tiketByWeek }}</h5>
+                                
+
+                                <div class="row">
+                                     {% for employee in texts.employee %}
+                                    <div class="card  text-center" style="width: 18rem;">
+                                        <div class="card-body">
+                                          <h5 class="card-title">{{ employee.name }}</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Тикетов <br>за месяц/за неделю</h6>
+                                          <p class="card-text">{{ employee.tiketByMonth }} /  {{ employee.tiketByWeek }}</p>
+                                          
+                                        </div>
+                                    </div>
                                     {% endfor %}
-                                </table> 
-                                <p class="card-text">{{ username }} {{ a.time }} <br> {{ b }} </p>
-                                   
-                                <p class="card-text">{{ username }} {{ a.time }} <br> {{ '0' }} </p>
+                                 <!--   <div class="card  text-center" style="width: 18rem;">
+                                        <div class="card-body">
+                                          <h5 class="card-title">{{ texts.employee_2.name }}</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Тикетов <br>за месяц/за неделю</h6>
+                                          <p class="card-text">{{ texts.employee_2.tiketByMonth }} /  {{ texts.employee_2.tiketByWeek }}</p>
+                                          
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card  text-center" style="width: 18rem;">
+                                        <div class="card-body">
+                                          <h5 class="card-title">{{ texts.employee_3.name }}</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Тикетов <br>за месяц/за неделю</h6>
+                                          <p class="card-text">{{ texts.employee_3.tiketByMonth }} /  {{ texts.employee_3.tiketByWeek }}</p>
+                                          
+                                        </div>
+                                    </div>
+                                    <div class="card  text-center" style="width: 18rem;">
+                                        <div class="card-body">
+                                          <h5 class="card-title">{{ texts.employee_4.name }}</h5>
+                                          <h6 class="card-subtitle mb-2 text-muted">Тикетов <br>за месяц/за неделю</h6>
+                                          <p class="card-text">{{ texts.employee_4.tiketByMonth }} /  {{ texts.employee_4.tiketByWeek }}</p>
+                                          
+                                        </div>
+                                    </div>-->
+                                </div>   
+                                
                         </div>
                         <div class="card" id="txt_2">
-                                <h5 class="card-title">Вкладка №2</h5>
-                                <p class="card-text">{{ username }} {{ from }} With supporting text below as a natural lead-in to additional content.</p>
+                                <h5 class="card-title">Повторные обращения за месяц были у клиентов:</h5>
+                                <p class="card-text">
+                                    <div class="row">
+                                    
+                                            {% for text in texts.replayTikets %} 
+                                            <div class="card  text-center" style="width: 18rem;">
+                                                <div class="card-body">
+                                                  <h5 class="card-title">{{ text.id_by_billing }}</h5>
+                                                  <h6 class="card-subtitle mb-2 text-muted">{{ text.name }}</h6>
+                                                  <p class="card-text">Адрес: {{ text.address }} <br> Оценка:  {{ text.mark }}</p>
+                                                  
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div></p>
                         </div>
                        
                 </div>

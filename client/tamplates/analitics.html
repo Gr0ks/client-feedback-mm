@@ -20,6 +20,7 @@
             padding: 12px;
             border: 1px solid #C0C0C0;
             background: #FFFFFF;
+            
         }
         .tabs>label {
             display: inline-block;
@@ -61,10 +62,10 @@
                 <li class="breadcrumb-item active" aria-current="page">Анализ обращений</li>
                 <div class="tabs">
                         <input class="btn btn-primary" type="radio" name="inset" value="" id="tab_1" checked>
-                        <label class="btn btn-primary" for="tab_1">Анализ распределения обращений</label>
+                        <label class="btn btn-primary" for="tab_1">Обработано обращений</label>
                     
                         <input class="btn btn-primary" type="radio" name="inset" value="" id="tab_2">
-                        <label class="btn btn-primary" for="tab_2">Клиенты с повторными обращениями</label>
+                        <label class="btn btn-primary" for="tab_2">Повторные обращения</label>
                     
                         
                     
@@ -72,7 +73,7 @@
                                 <h5 class="card-title">Тикетов за месяц: {{ texts.tiketByMonth }}<br> Тикетов за неделю: {{ texts.tiketByWeek }}</h5>
                                 
 
-                                <div class="row">
+                                <div class="row text-center">
                                      {% for employee in texts.employee %}
                                     <div class="card  text-center" style="width: 18rem;">
                                         <div class="card-body">
@@ -83,31 +84,7 @@
                                         </div>
                                     </div>
                                     {% endfor %}
-                                 <!--   <div class="card  text-center" style="width: 18rem;">
-                                        <div class="card-body">
-                                          <h5 class="card-title">{{ texts.employee_2.name }}</h5>
-                                          <h6 class="card-subtitle mb-2 text-muted">Тикетов <br>за месяц/за неделю</h6>
-                                          <p class="card-text">{{ texts.employee_2.tiketByMonth }} /  {{ texts.employee_2.tiketByWeek }}</p>
-                                          
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="card  text-center" style="width: 18rem;">
-                                        <div class="card-body">
-                                          <h5 class="card-title">{{ texts.employee_3.name }}</h5>
-                                          <h6 class="card-subtitle mb-2 text-muted">Тикетов <br>за месяц/за неделю</h6>
-                                          <p class="card-text">{{ texts.employee_3.tiketByMonth }} /  {{ texts.employee_3.tiketByWeek }}</p>
-                                          
-                                        </div>
-                                    </div>
-                                    <div class="card  text-center" style="width: 18rem;">
-                                        <div class="card-body">
-                                          <h5 class="card-title">{{ texts.employee_4.name }}</h5>
-                                          <h6 class="card-subtitle mb-2 text-muted">Тикетов <br>за месяц/за неделю</h6>
-                                          <p class="card-text">{{ texts.employee_4.tiketByMonth }} /  {{ texts.employee_4.tiketByWeek }}</p>
-                                          
-                                        </div>
-                                    </div>-->
+                                 
                                 </div>   
                                 
                         </div>

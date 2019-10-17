@@ -26,13 +26,19 @@ const connection = mysql.createPool({
         let values = '';
         for(let column of this._columns){
             columns += column[0] + ', ';
-            values +=this[column[1]]+', ';
+            if(this[column[1]][0]=='('){
+                values +=this[column[1]]+', ';
+            }else{
+                values +='"'+this[column[1]]+'", ';
+            }
         }        
         columns=columns.slice(0, -2);
         values=values.slice(0, -2);
+        //console.log(columns);
+        //console.log(values);
         let queryText = "INSERT INTO "+this._table+"("+columns+") VALUES("+values+")";
-        //console.log(queryText);
-        connection.query(queryText);/*,
+        console.log(queryText);
+        await connection.execute(queryText);/*,
             function(err, results) {
                 if(err) console.log(err);
                 else console.log("Данные добавлены");
@@ -106,7 +112,7 @@ const connection = mysql.createPool({
             this._tiket_id_by_billing = (result.tiket_id_by_billing);//?result.tiket_id_by_billing:0;
             this._breakdown = (result.breakdown);//?result.breakdown:0;
             this._tiket_to_do = (result.tiket_to_do);//?result.tiket_to_do:0;
-            this._test_ip = '"'+result.test_ip+'"';
+            this._test_ip = result.test_ip;
             this._client_id = (result.client_id);//?result.client_id:0;
             this._employee_id = (result.employee_id);//?result.employee_id:0;
             this._cli=(result.cli);//?result.cli:0;
@@ -267,21 +273,7 @@ const connection = mysql.createPool({
         return clientFromDB;        
     }
 
-    getIdByBilling(){
-        return this._id_by_billing;
-    }
-
-    getName(){
-        return this._name
-    }
     
-    getAddress(){
-        return this._address
-    }
-    
-    getMark(){
-        return this._mark
-    }
 
  }
 

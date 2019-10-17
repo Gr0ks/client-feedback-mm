@@ -69,13 +69,13 @@
                     
                         
                     
-                        <div class="card" id="txt_1" style="margin: 5px; padding: 5px">
+                        <div class="card" id="txt_1" >
                                 <h5 class="card-title">Тикетов за месяц: {{ texts.tiketByMonth }}<br> Тикетов за неделю: {{ texts.tiketByWeek }}</h5>
                                 
 
-                                <div class="row text-center">
+                                <div class="row" style="padding: 2%">
                                      {% for employee in texts.employee %}
-                                    <div class="card  text-center" style="width: 18rem;">
+                                    <div class="card  text-center" style="width: 18rem; margin: 0%; padding: 0px">
                                         <div class="card-body">
                                           <h5 class="card-title">{{ employee.name }}</h5>
                                           <h6 class="card-subtitle mb-2 text-muted">Тикетов <br>за месяц/за неделю</h6>
@@ -91,7 +91,7 @@
                         <div class="card" id="txt_2">
                                 <h5 class="card-title">Повторные обращения за месяц были у клиентов:</h5>
                                 <p class="card-text">
-                                    <div class="row">
+                                    <div class="row" style="padding: 2%">
                                     
                                             {% for text in texts.replayTikets %} 
                                             <div class="card  text-center" style="width: 18rem;">

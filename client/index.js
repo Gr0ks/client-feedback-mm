@@ -162,6 +162,7 @@ const connection = mysql.createPool({
         let totalTiket_2=0;
         let totalTiket_3=0;
         let totalTiket_4=0;
+        let totalTiket_5=0;
         for(let record of records){
             //console.log(record);
             if(record._employee_id==1){
@@ -176,12 +177,16 @@ const connection = mysql.createPool({
             }else if(record._employee_id==4){
                 totalTiket_4++;
                 //console.log(totalTiket_1);
+            }else if(record._employee_id==5){
+                totalTiket_5++;
+                //console.log(totalTiket_1);
             };            
         }  
         arr.push(totalTiket_1);     
         arr.push(totalTiket_2);
         arr.push(totalTiket_3);
         arr.push(totalTiket_4); 
+        arr.push(totalTiket_5); 
         return arr;
     }
 
@@ -192,10 +197,12 @@ const connection = mysql.createPool({
         let employeeTiketByWeek = await tiket.countByDaysAndEmployee(connection, 7);
         //console.log(employeeTiketByWeek);
         let employeeStats = [];
-        employeeStats.push({"name": "Маншин Д.", "tiketByMonth": employeeTiketByMonth[0], "tiketByWeek": employeeTiketByWeek[0]})
-        employeeStats.push({"name": "Орлов А.", "tiketByMonth": employeeTiketByMonth[1], "tiketByWeek": employeeTiketByWeek[1]})
-        employeeStats.push({"name": "Зенин В.", "tiketByMonth": employeeTiketByMonth[2], "tiketByWeek": employeeTiketByWeek[2]})
-        employeeStats.push({"name": "Иванов А.", "tiketByMonth": employeeTiketByMonth[3], "tiketByWeek": employeeTiketByWeek[3]})
+        employeeStats.push({"name": "Маншин Д.", "tiketByMonth": employeeTiketByMonth[0], "tiketByWeek": employeeTiketByWeek[0]});
+        employeeStats.push({"name": "Орлов А.", "tiketByMonth": employeeTiketByMonth[1], "tiketByWeek": employeeTiketByWeek[1]});
+        employeeStats.push({"name": "Зенин В.", "tiketByMonth": employeeTiketByMonth[2], "tiketByWeek": employeeTiketByWeek[2]});
+        employeeStats.push({"name": "Иванов А.", "tiketByMonth": employeeTiketByMonth[3], "tiketByWeek": employeeTiketByWeek[3]});
+        employeeStats.push({"name": "Мазур Д.", "tiketByMonth": employeeTiketByMonth[4], "tiketByWeek": employeeTiketByWeek[4]});
+        //console.log(employeeStats);
         return employeeStats;    
 
     }

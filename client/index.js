@@ -319,7 +319,7 @@ async function get_analitics(connection,req,res){
 
 function generateForm(req,res, formH, text){
     key=req.path;
-    console.log(key);
+    console.log(req.ip.substring(7)+" go to: "+key);
     var page=swig.renderFile(formH,text);
     
     res.send(page);

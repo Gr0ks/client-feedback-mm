@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Gr0ks/client-feedback-mm#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "http": "^0.0.0",
     "mysql2": "^1.7.0",
     "redis": "^2.8.0",
